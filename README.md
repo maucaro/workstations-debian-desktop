@@ -1,4 +1,4 @@
-# workstations-debian
+# Cloud Workstations Debian Desktop
 
 [Cloud Workstations](https://cloud.google.com/workstations/docs/overview) provides managed development environments on Google Cloud. A set of preconfigured images is available to use as-is or they can be customized for specific needs. In this project we opt for another option: building a custom image. 
 
@@ -21,3 +21,6 @@ After creating a Workstation, the user must configure it to be accessible via Ch
 - Close the SSH terminal.
 - The Workstation should now be accessible via the Remote Access tab on the Chrome Remote Desktop page.
 
+# Acknowledgement and Resources
+- This [repo](https://github.com/mchmarny/custom-cloud-workstation-image) was extremely helpful; I borrowed heavily from it and wish to acknowledge the author. It includes an update pipeline for the image which may also be of interest.
+- [Set up Chrome Remote Desktop for Linux on Compute Engine](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#xfce)
