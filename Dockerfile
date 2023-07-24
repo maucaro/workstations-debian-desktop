@@ -28,8 +28,5 @@ RUN apt-get -y install openssh-client openssh-server && \
 
 # Copy files from the assets directory
 COPY ./assets/. /
-RUN chmod +x /usr/bin/workstation-startup
-RUN chmod +x /google/scripts/entrypoint.sh
-RUN chmod -R +x /etc/workstation-startup.d
 
 ENTRYPOINT [ "/google/scripts/entrypoint.sh" ]
