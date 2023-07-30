@@ -1,1 +1,0 @@
-export https_proxy="10.128.0.99:443"

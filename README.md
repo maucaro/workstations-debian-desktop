@@ -2,7 +2,7 @@
 
 [Cloud Workstations](https://cloud.google.com/workstations/docs/overview) provides managed development environments on Google Cloud. A set of preconfigured images is available to use as-is or they can be customized for specific needs. In this project we opt for another option: building a custom image. 
 
-This image consists of a Debian (Xfce) desktop that can be accessed with [Chrome Remote Desktop](https://support.google.com/chrome/answer/1649523) from any supported device. The gcloud CLI is also included.
+This image consists of a Debian (Xfce) desktop that can be accessed with and RDP client via [Xrdp](https://www.xrdp.org/) from any supported device. The gcloud CLI is also included in the image.
 
 In order to use this:
 - Clone this repo.
@@ -13,14 +13,13 @@ In order to use this:
 - Create a Workstations configuration referencing the image in Artifact Registry.
 - Create Workstations. 
 
-After creating a Workstation, the user must configure it to be accessible via Chrome Remote Desktop by:
-- SSH into Workstation.
-- In Chrome, navigate to [Chrome Remote Desktop](https://remotedesktop.google.com/headless); click on 'Begin', then 'Next', then 'Authorize'.
-- Copy the provided Debian Linux command and execute it in the SSH terminal and select a 6-digit code when prompted.
-- Run the following command on the SSH terminal: `/usr/sbin/service chrome-remote-desktop restart`
-- Close the SSH terminal.
-- The Workstation should now be accessible via the Remote Access tab on the Chrome Remote Desktop page.
+After creating a Workstation, in order to connect to it:
+- Create an SSH tunnel to the RDP port (3389) with the following command:
 
-# Acknowledgement and Resources
+`
+gcloud beta workstations start-tcp-tunnel --project=$PROJECT_ID --cluster=$CLUSTER --config=$CONFIG --region=$REGION $WORKSTATION 3389
+`
+- Use an RDP client to connect to localhost:PORT (where PORT is the randomly chosen port from the previous command), 'user' as the user name and a blank password. 
+
+# Acknowledgement
 - This [repo](https://github.com/mchmarny/custom-cloud-workstation-image) was extremely helpful; I borrowed heavily from it and wish to acknowledge the author. It includes an update pipeline for the image which may also be of interest.
-- [Set up Chrome Remote Desktop for Linux on Compute Engine](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#xfce)
