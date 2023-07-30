@@ -1,0 +1,9 @@
+{                     
+  "policies": {
+      "Proxy": {
+          "Mode": "manual",
+          "SSLProxy": "10.128.0.99",
+          "Passthrough": ""
+      }
+  }
+}
