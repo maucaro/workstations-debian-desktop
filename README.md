@@ -6,6 +6,7 @@ This image consists of a Debian (Xfce) desktop that can be accessed with and RDP
 
 In order to use this:
 - Clone this repo.
+- You may want to modify or delete the Firefox policy file (assets/etc/firefox/policies/policies.json). 
 - Use Docker to build the image.
 - Push the image to Artifact Registry.
 - If you don't already have a Cloud Workstations cluster, create one.
