@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Startup script to start Chrome Remote Desktop.
+# Startup script to start Xrdp and PulseAudio.
 #
 
 echo "Starting 200_start-remote.sh"

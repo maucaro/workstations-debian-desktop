@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Startup script to add default user to workstation container.
+# Startup script to add default and xrdp users to workstation container and assign group membership.
 #
 
 echo "Starting 010_add-user.sh"

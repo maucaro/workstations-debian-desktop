@@ -5,8 +5,7 @@
 This image consists of a Debian (Xfce) desktop that can be accessed with and RDP client via [Xrdp](https://www.xrdp.org/) from any supported device. The gcloud CLI is also included in the image.
 
 In order to use this:
-- Clone this repo.
-- You may want to modify or delete the Firefox policy file (assets/etc/firefox/policies/policies.json). 
+- Clone this repo and modify as needed. For example, the Firefox policy file (assets/etc/firefox/policies/policies.json) sets the browser's SSLProxy setting; this file can be deleted. 
 - Use Docker to build the image.
 - Push the image to Artifact Registry.
 - If you don't already have a Cloud Workstations cluster, create one.
