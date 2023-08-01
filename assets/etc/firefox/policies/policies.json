@@ -2,7 +2,7 @@
   "policies": {
       "Proxy": {
           "Mode": "manual",
-          "SSLProxy": "proxy.internal.example.com",
+          "SSLProxy": "pocproxy.internal.q6cyber.com:443",
           "Passthrough": ""
       }
   }
