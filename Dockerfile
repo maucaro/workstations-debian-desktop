@@ -39,6 +39,11 @@ RUN pulsever=$(pulseaudio --version | awk '{print $2}') && \
     cd /tmp/pulseaudio-$pulsever/pulseaudio-module-xrdp/src/.libs && \
     install -t "/var/lib/xrdp-pulseaudio-installer" -D -m 644 *.so
 
+# Install Chrome
+RUN curl -L -o google-chrome-stable_current_amd64.deb \
+https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt install --assume-yes ./google-chrome-stable_current_amd64.deb
+
 # Copy files from the assets directory
 COPY ./assets/. /
 
