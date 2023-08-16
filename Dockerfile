@@ -1,6 +1,6 @@
 FROM debian:11
 
-RUN apt update
+RUN apt update && apt upgrade --assume-yes
 RUN apt install --assume-yes curl
 
 # Install an X Windows System desktop environment (Xfce)
