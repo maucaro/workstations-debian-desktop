@@ -3,7 +3,7 @@ FROM debian:11
 # Chrome Remote Deskto installation reference: 
 # https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#install_the_remote_desktop_chrome_app
 # Pre-reqs
-RUN apt update
+RUN apt update && apt upgrade --assume-yes
 RUN apt install --assume-yes curl
 
 # Install Chrome Remote Desktop on the VM instance
@@ -20,7 +20,9 @@ RUN apt install --assume-yes task-xfce-desktop
 # gcloud CLI installation reference:
 # https://cloud.google.com/sdk/docs/install#deb
 RUN apt-get --assume-yes install apt-transport-https ca-certificates gnupg sudo
-RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && apt-get update -y && apt-get install google-cloud-cli -y
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | \
+    tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | \
+    apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && apt-get update -y && apt-get install google-cloud-cli -y
       
 # Install OpenSSH
 RUN apt-get -y install openssh-client openssh-server && \
