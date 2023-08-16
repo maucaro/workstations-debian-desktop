@@ -28,6 +28,11 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.c
 RUN apt-get -y install openssh-client openssh-server && \
     rm -rf /etc/ssh/ssh_host_*  # remove auto-created host keys
 
+# Install Chrome
+RUN curl -L -o google-chrome-stable_current_amd64.deb \
+https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt install --assume-yes ./google-chrome-stable_current_amd64.deb
+
 # Copy files from the assets directory
 COPY ./assets/. /
 
